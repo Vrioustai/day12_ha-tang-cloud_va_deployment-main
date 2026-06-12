@@ -1,0 +1,43 @@
+services:
+  - type: keyvalue
+    name: ai-agent-redis
+    region: singapore
+    plan: free
+    ipAllowList: []
+
+  - type: web
+    name: ai-agent-production
+    runtime: docker
+    region: singapore
+    plan: free
+    dockerfilePath: 06-lab-complete/Dockerfile
+    dockerContext: 06-lab-complete
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: APP_VERSION
+        value: "1.0.0"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AGENT_API_KEY
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
+      - key: REDIS_HOST
+        fromService:
+          type: keyvalue
+          name: ai-agent-redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          type: keyvalue
+          name: ai-agent-redis
+          property: port
+      - key: REDIS_URL
+        value: redis://${REDIS_HOST}:${REDIS_PORT}
+      - key: DAILY_BUDGET_USD
+        value: "5.0"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "10"
