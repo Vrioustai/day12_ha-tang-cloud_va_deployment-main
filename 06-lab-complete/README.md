@@ -98,3 +98,15 @@ python check_production_ready.py
 ```
 
 Script này kiểm tra tất cả items trong checklist và báo cáo những gì còn thiếu.
+
+---
+
+## Day 8 RAG Pipeline Deployment
+
+This lab also includes a documentation annex for the Day 8 RAG pipeline project.
+
+- Source repo: `https://github.com/Vrioustai/Day08_RAG_pipeline_cohort2-main`
+- Local source path: `C:\Users\Vrious\Desktop\Thư mục mới (2)\Day08_RAG_pipeline_cohort2-main`
+- Deployed app: `https://day08ragpipelinecohort2-main-production.up.railway.app/`
+
+See `day08_rag_pipeline/README.md` for the Day 8 deployment summary and report notes.
