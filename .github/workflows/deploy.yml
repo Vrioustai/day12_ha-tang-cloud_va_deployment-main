@@ -20,4 +20,4 @@ jobs:
         working-directory: 06-lab-complete
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service day12-agent
+        run: railway up --project 227e19d4-5387-49bf-bf77-6122c7b05b8b
